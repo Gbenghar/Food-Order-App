@@ -6,8 +6,9 @@ import classes from "./Cart.module.css";
 import CartContext from "../../store/cart-context";
 import Checkout from "./CheckOut";
 
+
 const Cart = (props) => {
-  const [isCheckOut, setIsCheckOut] = useState(false);
+  const [isCheckOut, setIsCheckout] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [didSubmit, setDidSubmit] = useState(false);
 
@@ -24,11 +25,11 @@ const Cart = (props) => {
   };
 
   const orderHandler = () => {
-    setIsCheckOut(true);
+    setIsCheckout(true);
   };
 
   const submitOrderHandler = async (userData) => {
-    isSubmitting(true);
+    setIsSubmitting(true);
     await fetch(
       "https://react-http-83b27-default-rtdb.firebaseio.com/orders.json",
       {
@@ -40,6 +41,7 @@ const Cart = (props) => {
       });
       setIsSubmitting (false);
       setDidSubmit (true);
+      cartCtx.clearCart();
   };
 
   const cartItems = (
