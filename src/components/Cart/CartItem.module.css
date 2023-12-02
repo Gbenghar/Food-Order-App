@@ -6,7 +6,7 @@
     padding: 1rem 0;
     margin: 1rem 0;
     max-height: 30rem;
-    overflow: scroll;
+    overflow: auto;
   }
   
   .cart-item h2 {

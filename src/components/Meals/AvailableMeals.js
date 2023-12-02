@@ -39,6 +39,7 @@ const AvailableMeals = () => {
       setHttpError(error.message)
     })
   }, [])
+
   if (isLoading) {
     return (
       <section className={classes.MealsLoading}>
