@@ -3,7 +3,7 @@ import classes from "./Checkout.module.css";
 
 //4. defining the error conditions outside
 const isEmpty = (value) => value.trim() === "";
-const isFiveChars = (value) => value.trim().length === 6;
+const isFiveChars = (value) => value.trim().length === 6 ;
 
 const Checkout = (props) => {
   //6 valididty check before form is submitted
@@ -50,10 +50,17 @@ const Checkout = (props) => {
     enteredCityIsValid &&
     enteredPostalCodeIsValid;
     
-    // Check if the form is not valid
+    // Check the final form valididity
     if (!formIsValid) {
         return;
     }
+
+    props.onConfirm({
+        name: enteredName,
+        street: enteredStreet,
+        city: enteredCity,
+        postalCode: enteredPostalCode,
+    });
 };
 
   return (
